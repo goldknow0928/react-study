@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+### 01. 개발환경 구성하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Node.js
+노드 버전 확인 :  `node -v `
 
-## Available Scripts
+2) yarn
+yarn 전역 설치 : `npm install -g yarn`
 
-In the project directory, you can run:
 
-### `yarn start`
+### 02. 프로젝트 생성하기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1) 프로젝트 생성 및 초기와
+`yarn create react-app 프로젝트명`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2) 프로젝트 생성하기
+`yarn start`
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 03. 컴포넌트 종류
 
-### `yarn build`
+1) 컴포넌트
+재사용 가능한 HTML 조각단위
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2) 클래스 컴포넌트
+- React 오리지널 컴포넌트
+- class 형태로 정의하는 컴포넌트
+- 함수형 컴포넌트보다 구문이 복잡하고 길다
+- 함수형 컴포넌트보다 구문이 좀 더 명확하다
+- 클래스 안에 통칭 LifeCycle이라는 미리 정해진 함수들을 통해 화면의 갱신 시점이나 변수값의 변경 시점에 화면을 어떻게 처리할지 정의할 수 있다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3) 함수형 컴포넌트(권장)
+- 클래스 컴포넌트보다 구문이 간결하지만 그만큼 더 난해할 수 있다.
+- 리액트 버전 16이후에 LifeCycle을 처리할 수 있는 hook이라는 기능이 도입되면 React에서 공식적으로 권장하는 컴포넌트 작성 방법
