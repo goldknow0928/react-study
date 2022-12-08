@@ -1,0 +1,100 @@
+@import "./colors.module.scss";
+@import "./common.module.scss";
+@import "./responsive.module.scss";
+
+.myScss {
+    width: 100%;
+    margin: auto;
+    border: 5px solid $pink;
+    padding: 5px;
+    box-sizing: border-box;
+
+    @include md {
+        padding: 25px;
+    }
+
+    @include lg {
+        padding: 50px;
+    }
+
+    &:after {
+        display: block;
+        content: "mobile";
+        clear: both;
+        float: none;
+    }
+
+    .myScssBox {
+        cursor: pointer;
+        float: left;
+
+        &.red {
+            background-color: $red;
+            @include myMixin(1);
+        }
+        &.green {
+            background-color: $green;
+            @include myMixin(1);
+        }
+        &.blue {
+            background-color: $blue;
+            @include myMixin(1);
+        }
+        &.orange {
+            background-color: $orange;
+            @include myMixin(1);
+        }
+        &.yellow {
+            background-color: $yellow;
+            @include myMixin(1);
+        }
+        &.pink {
+            background-color: $pink;
+            @include myMixin(1);
+        }
+    }
+}
+
+@include sm {
+    .myScss {
+        width: 100%;
+        border-color: #000;
+
+        &:after {
+            content: "tablet-portrait";
+        }
+    }
+}
+
+@include md {
+    .myScss {
+        width: $breakpoint-medium;
+        border-color: $green;
+
+        &:after {
+            content: "tablet-landscape";
+        }
+    }
+}
+
+@include lg {
+    .myScss {
+        width: $breakpoint-large;
+        border-color: $orange;
+
+        &:after {
+            content: "laptop";
+        }
+    }
+}
+
+@include xl {
+    .myScss {
+        width: $breakpoint-extra-large;
+        border-color: $blue;
+
+        &:after {
+            content: "desktop";
+        }
+    }
+}
