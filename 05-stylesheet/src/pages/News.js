@@ -34,8 +34,10 @@ const News = () => {
             </MyNav>
             <hr />
             <Routes>
-                <Route path='news_card' element={<NewsCard news={NewsData} />}></Route>
-                <Route path='news_list' element={<NewsList news={NewsData} />}></Route>
+                {/* /news 일때 보여지게 */}
+                <Route path='/' element={<NewsCard news={NewsData} />} exact={true} />
+                <Route path='news_card' element={<NewsCard news={NewsData} />} />
+                <Route path='news_list' element={<NewsList news={NewsData} />} />
             </Routes>
         </div>
     );
