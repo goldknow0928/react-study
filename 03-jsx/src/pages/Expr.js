@@ -32,7 +32,7 @@ const Expr = () => {
       </p>
 
       {/* 사용자 정의 함수 호출하기 */}
-      <blockquote>{myEllipsis(message, 15)}</blockquote>
+      <blockquote style={{margin:0}}>{myEllipsis(message, 10)}</blockquote>
     </div>
   );
 };

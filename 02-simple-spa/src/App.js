@@ -38,6 +38,7 @@ function App() {
                 {/* GET 파라미터 사용 */}
                 <Route path="/department_get" element={<DepartmentGet />} />
                 {/* Path 파라미터는 URL 형식에 변수의 위치와 이름을 정해줘야 한다. */}
+                {/* Link에 걸어놓은 /201/hello/ 와  /:id/:msg/ 가 같다 */}
                 <Route path="/department_path/:id/:msg" element={<DepartmentPath/>} />
                 {/* path 속성 없이 Route 지정 -> 지정되지 않은 모든 요청에 반응. 단 Routes블록의 맨 마지막에 배치해야 함 */}
                 <Route path="/*" element={<Error404/>} />
