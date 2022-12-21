@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Routes, Route  } from 'react-router-dom';
 import mq from '../MediaQuery';
+
+import Page01 from '../pages/Sub/Page01';
+import Page02 from '../pages/Sub/Page02';
+import Page03 from '../pages/Sub/Page03';
 
 // 메뉴바 컴포넌트 스타일 정의
 const NavbarContainer = styled.nav`
@@ -51,14 +55,22 @@ const NavbarContainer = styled.nav`
 
 const Navbar = () => {
     return (
-        <NavbarContainer>
-            <div>
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/link1'>Link1</NavLink>
-                <NavLink to='/link2'>Link2</NavLink>
-                <NavLink to='/link3' className='right'>Link3</NavLink>
-            </div>
-        </NavbarContainer>
+        <div>
+            <NavbarContainer>
+                <div>
+                    <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/link1'>Link1</NavLink>
+                    <NavLink to='/link2'>Link2</NavLink>
+                    <NavLink to='/link3' className='right'>Link3</NavLink>
+                </div>
+            </NavbarContainer>         
+
+            <Routes>
+                <Route path='/link1' element={<Page01 />} />
+                <Route path='/link2' element={<Page02 />} />
+                <Route path='/link3' element={<Page03 />} />
+            </Routes>
+        </div>
     );
 };
 

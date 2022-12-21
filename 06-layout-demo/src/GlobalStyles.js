@@ -9,6 +9,11 @@ const GlobalStyles = createGlobalStyle`
     * {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
 `;
 
 export default GlobalStyles;

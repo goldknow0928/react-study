@@ -6,27 +6,23 @@ import Post from './Post'
 
 // 컨텐츠 영역 컨테이너에 대한 스타일
 const MainContainer = styled.section`
-    max-width: 1200px;
-    margin: auto;
     background-color: #fff;
     border-left: 1px solid #d5d5d5;
     border-right: 1px solid #d5d5d5;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
 
     ${mq.maxWidth('sm')`
         flex-direction: column-reverse;
     `}
 `;
 
-const index = () => {
+const Main = () => {
     return (
-        <MainContainer>
+        <MainContainer className='inner'>
             <Side />
             <Post />
         </MainContainer>
     );
 };
 
-export default index;
+export default Main;
