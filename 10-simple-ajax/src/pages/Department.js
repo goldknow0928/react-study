@@ -122,7 +122,7 @@ const Department = memo(() => {
 
         // 검색어를 쿼리스트링으로 지정하여 페이지를 이동한다
         navigate(`/departmnt?keyword=${e.currentTarget.keyword.value}`);
-    }, [keyword]);
+    }, []);
 
     /** 데이터 추가 submit 이벤트 */
     const onDataAddSubmit = useCallback((e) => {
