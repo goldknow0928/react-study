@@ -8,7 +8,7 @@ const App = memo(() => {
     return (
         <div>
             <h1>12-Axios-Hooks-CRUD</h1>
-            <hr />
+
             <Routes>
                 <Route path="/" exact={true} element={<GradeList />} />
                 <Route path="/add" exact={true} element={<GradeAdd />} />
