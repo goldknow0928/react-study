@@ -34,7 +34,7 @@ const GradeList = memo(() => {
     const [grade, setGrade] = useState([]);
 
     /** 백엔드로부터 데이터 불러오기 */
-    // 삭제를 위한 useAxiod와 구조분해 변수명이 겹치는 것을 방지하기 위해 변수이름을 loading1으로 변경하여 처리
+    // 삭제를 위한 useAxios와 구조분해 변수명이 겹치는 것을 방지하기 위해 변수이름을 loading1으로 변경하여 처리
     const [{ data, loading: loading1, error }] = useAxios("/grade", {
         // 쓰기, 수정 페이지에 방문하여 데이터가 변경되더라도 다시 목록페이지로 돌아오면
         // Axios는 캐시된 json을 활용하기 때문에 데이터의 변경사항이 화면에 반영되지 않는다
