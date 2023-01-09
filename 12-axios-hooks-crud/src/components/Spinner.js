@@ -9,8 +9,8 @@ const Spinner = memo(({ loading, width, height }) => {
     return (
         <Blocks
             visible={loading}
-            width={width}
-            height={height}
+            width={height}
+            height={width}
             ariaLabel="blocks-loading"
             wrapperStyle={{
                 position: "fixed",
