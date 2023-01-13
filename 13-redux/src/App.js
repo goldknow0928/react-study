@@ -5,6 +5,7 @@ import Counter from "./pages/Counter";
 import Department from "./pages/Department";
 import News from "./pages/News";
 import MovieRank from "./pages/MovieRank";
+import ImageSearch from "./pages/ImageSearch";
 
 const App = memo(() => {
     return (
@@ -15,6 +16,7 @@ const App = memo(() => {
                 <MenuLink to="/department">Department</MenuLink>
                 <MenuLink to="/news">News</MenuLink>
                 <MenuLink to="/movieRank">MovieRank</MenuLink>
+                <MenuLink to="/imageSearch">ImageSearch</MenuLink>
             </nav>
             <hr />
             <Routes>
@@ -22,6 +24,7 @@ const App = memo(() => {
                 <Route path="/department" element={<Department />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/movieRank" element={<MovieRank />} />
+                <Route path="/imageSearch" element={<ImageSearch />} />
             </Routes>
         </div>
     );
