@@ -7,8 +7,28 @@ export const getList = createAsyncThunk("DepartmentSlice/getList", async (payloa
     let result = null;
     const URL = process.env.REACT_APP_API_DEPARTMENT_LIST;
 
+    // `/pages/DepartmentList.js`에서 검색어를 {keyword: 검색어값} 형태로 전달하면 payload객체를 통해 넘어온다
+    // --> payload.keyword
+    // 여기서는 그 값을 학과명 검색어로 활용
+    let params = null;
+
+    // payload객체가 null이나 undefined가 아니고, 그 안의 keyword 값이 존재한다면?
+    /**
+     * 특정 객체(payload)에 "keyword" 프로퍼티가 있는지 확인하는 코드이다
+     * '?' 는 Optional Chaining 연산자로, 프로퍼티가 존재하지 않는 경우 undefined를 반환한다
+     * 즉, payload 객체에 keyword 프로퍼티가 있으면 그 프로퍼티의 값을, 없으면 undefined를 반환한다
+     */
+    if (payload?.keyword) {
+        // axios에 설정할 querystring 데이터 구성
+        params = {
+            dname: payload.keyword
+        }
+    }
+
     try {
-        const response = await axios.get(URL);
+        const response = await axios.get(URL, {
+            params: params
+        });
         result = response.data;
     } catch (err) {
         console.log(`에러다! ----- ${err}`);
