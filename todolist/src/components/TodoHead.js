@@ -27,10 +27,10 @@ const TodoHeadBlock = styled.div`
 `;
 
 const TodoHead = () => {
-    const todos = useTodoState();
-    const undoneTasks = todos.filter((todo) => !todo.done);
+    const todos = useTodoState(); //todo 상태 배열 가져오기
+    const undoneTasks = todos.filter((todo) => !todo.done); //todos배열에서 done값이 false인 항목들만 저장
     
-    const today = new Date();
+    const today = new Date(); //date객체 생성
     const dateString = today.toLocaleDateString("ko-KR", {
         year: "numeric",
         month: "long",
