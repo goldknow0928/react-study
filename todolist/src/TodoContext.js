@@ -1,20 +1,10 @@
-import React, { useReducer, createContext, useContext, useRef } from "react";
+import React, { useReducer, createContext, useContext, useRef, useEffect } from "react";
 
 //초기 상태 정의
-const initialTodos = [
+const initialTodos = JSON.parse(localStorage.getItem("todo")) || [
     {
         id: 1,
         text: "프로젝트 생성하기",
-        done: true,
-    },
-    {
-        id: 2,
-        text: "컴포넌트 스타일링 하기",
-        done: false,
-    },
-    {
-        id: 3,
-        text: "Context 만들기",
         done: false,
     },
 ];
@@ -48,14 +38,40 @@ const TodoNextIdContext = createContext(); //다음 Todo 항목의 id 값을 제
  * nextId는 useRef를 사용하여 초기값을 initialTodos의 length +1 로 설정한다. */
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
-    const nextId = useRef(initialTodos.length + 1);
+    const nextId = useRef(getNextId()); //다음 사용 가능한 id 가져오기
+
+    useEffect(() => {
+        localStorage.setItem("todo", JSON.stringify(state));
+    }, [state]);
+
+    //다음 사용 가능한 id 계산
+    function getNextId() {
+        const maxId = state.reduce((max, todo) => (todo.id > max ? todo.id : max), 0);
+        return maxId + 1;
+    }
+
+    //할 일 삭제후 nextId 업데이트
+    function updateNextIdAfterDelete(id) {
+        if (id === nextId.current - 1) {
+            nextId.current -= 1;
+        }
+    }
+
+    //nextId 업데이트하는 새로운 디스패치 함수 생성
+    const dispatchWidthNextId = (action) => {
+        if (action.type === "REMOVE") {
+            updateNextIdAfterDelete(action.id);
+        }
+        dispatch({ ...action, nextId: nextId.current });
+        nextId.current += 1; //액션을 디스패치한 후 nextId를 증가시킨다.
+    };
 
     /** ~.Provider 를 사용하여 각각의 값들을 제공한다.
      * 이렇게 하위 컴포넌트에서 해당 Context값을 사용할 수 있게 된다.
      * {children} 은 Provider 컴포넌트로 감싸진 자식 컴포넌트들을 렌더링하는 역할을 한다. */
     return (
         <TodoStateContext.Provider value={state}>
-            <TodoDispatchContext.Provider value={dispatch}>
+            <TodoDispatchContext.Provider value={dispatchWidthNextId}>
                 <TodoNextIdContext.Provider value={nextId}>{children}</TodoNextIdContext.Provider>
             </TodoDispatchContext.Provider>
         </TodoStateContext.Provider>
