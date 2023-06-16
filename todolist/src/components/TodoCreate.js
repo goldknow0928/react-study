@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useTodoDispatch, useTodoNextId } from "../TodoContext";
 
-const InsertFormPositioner = styled.div`
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-`;
-
 const InsertForm = styled.form`
-    padding: 32px;
+    padding: 20px 24px;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     border-top: 1px solid #e9ecef;
@@ -23,8 +16,15 @@ const Input = styled.input`
     border-radius: 4px;
     border: 1px solid #dee2e6;
     font-size: 18px;
+    font-family: "Pretendard Variable", Pretendard;
     box-sizing: border-box;
     outline: none;
+
+    &::placeholder {
+        color: #dee2e6;
+        font-weight: 300;
+        font-size: 16px;
+    }
 `;
 
 /** 할 일을 생성하는 기능 */
@@ -63,14 +63,10 @@ const TodoCreate = () => {
     };
 
     return (
-        <>
-            <InsertFormPositioner>
-                <InsertForm onSubmit={onSubmit}>
-                    {/* onChange 함수를 사용하여 값의 변경을 감지하고, value 상태를 통해 입력된 값을 표시한다. */}
-                    <Input autoFocus placeholder="할 일을 입력 후, Enter를 누르세요." onChange={onChange} value={value} />
-                </InsertForm>
-            </InsertFormPositioner>
-        </>
+        <InsertForm onSubmit={onSubmit}>
+            {/* onChange 함수를 사용하여 값의 변경을 감지하고, value 상태를 통해 입력된 값을 표시한다. */}
+            <Input autoFocus placeholder="입력 후, Enter를 누르세요." onChange={onChange} value={value} />
+        </InsertForm>
     );
 };
 

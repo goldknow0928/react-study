@@ -4,9 +4,11 @@ import TodoItem from "./TodoItem";
 import { useTodoState } from "../TodoContext";
 
 const TodoListBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     flex: 1;
-    margin-bottom: 120px;
-    padding: 20px 32px 48px;
+    padding: 24px;
     overflow-y: auto;
 `;
 
@@ -24,6 +26,6 @@ const TodoList = () => {
             ))}
         </TodoListBlock>
     );
-}
+};
 
 export default TodoList;

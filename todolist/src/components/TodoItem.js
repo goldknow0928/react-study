@@ -7,28 +7,22 @@ const Buttons = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`;
 
-const EditButton = styled.button`
-    &:hover {
-        color: #6d6bff;
-    }
-`;
-
-const Remove = styled.button`
-    &:hover {
-        color: #ff6b6b;
+    button:hover {
+        color: #f25f4c;
     }
 `;
 
 const TodoItemBlock = styled.div`
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: 15px 10px 15px 15px;
+    box-shadow: 0 0 9px #e5e5e5;
+    border-radius: 8px;
 
     button {
         color: #dee2e6;
-        font-size: 24px;
+        font-size: 22px;
         background: none;
         border: none;
         outline: none;
@@ -46,19 +40,19 @@ const CheckCircle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    margin-right: 20px;
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
     border-radius: 16px;
-    border: 1px solid #ced4da;
+    border: 1px solid #f25f4c;
     font-size: 24px;
     cursor: pointer;
 
     ${(props) =>
         props.done === "true" &&
         `
-            border: 1px solid #38d9a9;
-            color: #38d0a0;
+            border: 1px solid #F25F4C;
+            color: #F25F4C;
         `}
 `;
 
@@ -70,7 +64,6 @@ const EditForm = styled.form`
 const EditInput = styled.input`
     flex: 1;
     padding: 0.5rem;
-    font-size: 21px;
     border: none;
     outline: none;
     border-bottom: 1px solid #ced4da;
@@ -78,8 +71,8 @@ const EditInput = styled.input`
 
 const Text = styled.div`
     flex: 1;
-    font-size: 21px;
     color: #495057;
+    word-break: break-word;
 
     ${(props) =>
         props.done === "true" &&
@@ -142,9 +135,9 @@ const TodoItem = ({ id, done, text }) => {
             {isEditing ? (
                 <EditForm onSubmit={onSubmit}>
                     <EditInput autoFocus value={editText} onChange={onChange} />
-                    <EditButton type="submit">
+                    <button type="submit">
                         <MdDone />
-                    </EditButton>
+                    </button>
                 </EditForm>
             ) : (
                 <Text done={done.toString()}>{text}</Text>
@@ -153,14 +146,14 @@ const TodoItem = ({ id, done, text }) => {
             <Buttons>
                 {/* 수정 버튼 */}
                 {!isEditing && !done && (
-                    <EditButton onClick={onEdit}>
+                    <button onClick={onEdit}>
                         <MdEdit />
-                    </EditButton>
+                    </button>
                 )}
                 {/* 삭제 버튼 */}
-                <Remove onClick={onRemove}>
+                <button onClick={onRemove}>
                     <MdDelete />
-                </Remove>
+                </button>
             </Buttons>
         </TodoItemBlock>
     );
